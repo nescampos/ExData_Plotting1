@@ -1,0 +1,11 @@
+datos <- read.csv("household_power_consumption.txt",header=TRUE,sep=";",dec=".",stringsAsFactors=FALSE)
+filtradosPorFecha <- datos[datos$Date %in% c("1/2/2007","2/2/2007"),]
+str(filtradosPorFecha)
+
+globalactivepower <- as.numeric(filtradosPorFecha$Global_active_power)
+
+png("plot1.png")
+
+hist(globalactivepower,main="Global Active Power",xlab="Global Active Power (kilowatts)",ylab="Frequency",col="red")
+
+dev.off()
